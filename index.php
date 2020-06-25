@@ -25,8 +25,8 @@ get_header();
                     <p><a class = "btn btn--blue" href="<?php the_permalink() ?>">Continue Reading &raquo;</a></a>
                 </div>
             </div>
-        <?php
-    }
+    <?php }
+    echo paginate_links();
     ?>
 </div>
 <?php
