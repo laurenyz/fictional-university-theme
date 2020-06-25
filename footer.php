@@ -13,6 +13,7 @@
       <div class="site-footer__col-two">
         <h3 class="headline headline--small">Explore</h3>
         <nav class="nav-list">
+          <!-- need to use php and wp_nave_menu(array('theme_location'=> "headerMenuLocation" or whatever set in function.php in order to access dynamic nav menu)) -->
           <ul>
             <li><a href="<?php echo site_url('/about-us'); ?>">About Us</a></li>
             <li><a href="#">Programs</a></li>
