@@ -7,10 +7,18 @@ function university_files(){
     //wp_enqueue_script('main-university-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, microtime(), true);
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
-    //removed for hotload
+    //removed and adjust below for hotload
     //wp_enqueue_style('university-main-styles', get_stylesheet_uri(), NULL, microtime());
-    //adjusted for hotload
-    wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
+    if(strstr($_SERVER['SERVER_NAME'],'fictional-university.local')){
+        //for development
+        wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true);
+    } else {
+        //for production
+        wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.b0eb6430f760590e2b68.js'), NULL, '1.0', true);
+        wp_enqueue_script('main-university-js', get_theme_file_uri('/bundled-assets/scripts.65ac0aa29638b2e23e6c.js'), NULL, '1.0', true);
+        wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.65ac0aa29638b2e23e6c.css'));
+    }
+   
 }
 
 function university_features(){
@@ -21,6 +29,10 @@ function university_features(){
     add_theme_support('title-tag');
 }
 
+
+
 add_action('wp_enqueue_scripts','university_files');
 add_action('after_setup_theme', 'university_features');
 
+
+// added new post types in mu-plugins folder outside of theme
