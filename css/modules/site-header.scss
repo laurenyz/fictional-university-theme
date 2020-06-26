@@ -37,7 +37,7 @@
       visibility: visible;
     }
 
-    @mixin atMedium {
+    @include atMedium {
       visibility: visible;
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -58,12 +58,12 @@
     top: 6px;
     right: 16px;
 
-    @mixin atSmall {
+    @include atSmall {
       top: 4px;
       font-size: 1.4rem;
     }
 
-    @mixin atMedium {
+    @include atMedium {
       display: none;
     }
   }
@@ -77,12 +77,12 @@
     top: 7px;
     right: 46px;
 
-    @mixin atSmall {
+    @include atSmall {
       top: 5px;
       font-size: 1.4rem;
     }
 
-    @mixin atMedium {
+    @include atMedium {
       display: none;
     }
   }
@@ -90,7 +90,7 @@
   &__util {
     padding: 0 0 0 20px;
 
-    @mixin atMedium {
+    @include atMedium {
       padding: 0;
       float: right;
     }
@@ -98,7 +98,7 @@
 
   &__btn {
     margin-right: 20px;
-    @mixin atMedium {
+    @include atMedium {
       float: left;
     }
   }

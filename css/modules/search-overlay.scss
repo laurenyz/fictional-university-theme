@@ -39,7 +39,7 @@
     margin-right: 10px;
     font-size: 1.8rem;
     color: $darkOrange;
-    @mixin atMedium {
+    @include atMedium {
       font-size: 2.5rem;
     }
   }
@@ -69,11 +69,11 @@
     background-color: #FFF;
     color: $darkOrange;
     line-height: .7;
-    @mixin atSmall {
+    @include atSmall {
       top: 18px;
       font-size: 2.1rem;
     }
-    @mixin atMedium {
+    @include atMedium {
       top: 26px;
       font-size: 2.8rem;
     }
@@ -99,10 +99,10 @@
   font-weight: 300;
   outline: none;
   color: $darkOrange;
-  @mixin atSmall {
+  @include atSmall {
     font-size: 1.5rem
   }
-  @mixin atMedium {
+  @include atMedium {
     width: 80%;
     font-size: 3rem;
   }

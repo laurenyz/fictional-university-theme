@@ -22,7 +22,7 @@
   h5 {font-size: 1.6rem}
   h6 {font-size: 1.15rem}
 
-  @mixin atSmall {
+  @include atSmall {
     h1 {font-size: 6.25rem}
     h2 {font-size: 5rem}
     h3 {font-size: 3.125rem}

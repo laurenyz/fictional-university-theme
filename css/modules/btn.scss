@@ -80,7 +80,7 @@
     font-size: 1.3rem;
     padding: 16px 34px;
     border-radius: 7px;
-    @mixin atSmall {
+    @include atSmall {
       font-size: 1.9rem;
     }
   }

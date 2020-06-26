@@ -47,6 +47,19 @@ let cssConfig = {
   use: ["css-loader?url=false", { loader: "postcss-loader", options: { plugins: postCSSPlugins } }]
 }
 
+let scssConfig =  {
+  test: /\.s[ac]ss$/i,
+  use: [
+    // Creates `style` nodes from JS strings
+    'style-loader',
+    // Translates CSS into CommonJS
+    //'css-loader',
+    { loader: "postcss-loader", options: { plugins: postCSSPlugins } },
+    // Compiles Sass to CSS
+    'sass-loader',
+  ],
+}
+
 let config = {
   entry: {
     scripts: "./js/scripts.js"
@@ -54,7 +67,8 @@ let config = {
   plugins: [],
   module: {
     rules: [
-      cssConfig,
+      // cssConfig,
+      scssConfig,
       {
         test: /\.js$/,
         exclude: /(node_modules)/,

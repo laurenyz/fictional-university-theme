@@ -15,7 +15,7 @@
 .page-section {
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
-  @mixin atSmall {
+  @include atSmall {
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
   }
@@ -94,7 +94,7 @@
   cursor: pointer;
   top: 1px;
   margin-left: 20px;
-  @mixin atMedium {
+  @include atMedium {
     display: inline-block;
     top: 6px;
   }
@@ -159,7 +159,7 @@
   padding-bottom: 1.6rem;
 }
 
-@mixin atMedium {
+@include atMedium {
   .row {
     margin-right: -50px;
   }
@@ -213,7 +213,7 @@
   border: none;
   font-family: 'Roboto', sans-serif;
   padding: 10px;
-  @mixin atSmall {
+  @include atSmall {
     font-size: 1.4rem;
   }
 }
