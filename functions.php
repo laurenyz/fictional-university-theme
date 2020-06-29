@@ -20,6 +20,7 @@ function university_files(){
     }
    
 }
+add_action('wp_enqueue_scripts','university_files');
 
 function university_features(){
     // code for dynamic menu accessible in wp-admin.  Need to add
@@ -28,11 +29,25 @@ function university_features(){
     // register_nav_menu('footerLocationTwo', 'Footer Location Two');
     add_theme_support('title-tag');
 }
-
-
-
-add_action('wp_enqueue_scripts','university_files');
 add_action('after_setup_theme', 'university_features');
+
+function university_adjust_queries($query){
+    $today = date('Ymd');
+    if(!is_admin() AND is_post_type_archive('event') AND $query->is_main_query()){ //only if not in the admin
+        $query->set('meta_key','event_date');
+        $query->set('orderby','meta_value_num');
+        $query->set('order', 'ASC');
+        $query->set('meta_query', array(
+            array(
+                'key'=> 'event_date',  //only show posts where the event_date is greater >= today's date. specify numberic to make sure type matches
+                'compare' => '>=',
+                'value' => $today,
+                'type'=> 'numeric'
+              )
+            ));
+    }
+}
+add_action('pre_get_posts', 'university_adjust_queries');
 
 
 // added new post types in mu-plugins folder outside of theme
